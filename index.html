@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="Images/logo.png" type="image/x-icon">
+    <title>DBMS</title>
+    <style>
+        body {
+            margin: 0;
+            font-size: 24px;
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url("Images/bg0.jpg");
+            background-repeat: repeat;
+            background-size: 100%;
+            color: white;
+        }
+        .header {
+            padding: 0px;
+            text-align: center;
+        }
+        #navbar {
+            overflow: hidden;
+            background-image: url("Images/bg0.jpg");
+            background-size: cover;
+        }
+        #navbar a {
+            float: left;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 8px 0px;
+            text-decoration: none;
+            font-size: 30px;
+            width: 33.3%;
+            font-weight: 600;
+        }
+        #navbar a:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: black;
+        }
+        #navbar a.active {
+            background-color: rgb(255, 102, 0);
+            color: black;
+        }
+        .content {
+            padding: 20px;
+        }
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+        h2 {
+            background-color: rgb(255, 102, 0);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>DATABASE MANAGEMENT SYSTEM</h1>
+        <img src="Images/icon.png" alt="Logo" style="padding-bottom: 20px;">
+    </div>
+    <div id="navbar">
+        <a class="active" href="index.html">HOME</a>
+        <a href="HTML/pl.html">PL/SQL</a>
+        <a href="HTML/sql.html">SQL</a>
+    </div>
+    <div class="content">
+        <hr><h2>PL/SQL</h2><hr><br>
+        <div style="display: flex;">
+            <p style="margin: 50px;">PL/SQL is a procedural language designed specifically to embrace SQL statements
+                within its syntax. PL/SQL program units are compiled by the Oracle Database server and stored inside the
+                database. And at run-time, both PL/SQL and SQL run within the same server process, bringing optimal
+                efficiency.</p>
+            <img src="Images/p.png" alt="PL/SQL" style="padding: 15px;">
+        </div><br>
+        <hr><h2>SQL</h2><hr><br>
+        <div style="display: flex;">
+            <img src="Images/s.png" alt="SQL" style="padding: 15px;">
+            <p style="margin: 50px;">Structured Query Language, abbreviated as SQL,
+                is a domain-specific language used in programming and designed for managing data held in
+                a relational database management system, or for stream processing in a relational data stream management
+                system.</p>
+        </div><br>
+        <br><hr>
+        <div class="footer">
+            <h2>ABOUT ME</h2>
+            <hr><br><br><br>
+            <table align="center" width="100%" border="2px" bordercolor="white" cellpadding="10px" cellspacing="5px">
+                <tr>
+                    <th>NAME</th>
+                    <th>CLASS</th>
+                    <th>ROLL NUMBER</th>
+                </tr>
+                <tr align="center">
+                    <td>Rajbir Singh</td>
+                    <td>BCA - 2</td>
+                    <td>7092 - 21</td>
+                </tr>
+            </table><br><br><br>
+            <hr><br>
+        </div>
+    </div>
+</body>
+<script>
+    window.onscroll = function () { myFunction() };
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+    function myFunction() {
+        if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky")
+        }else{
+            navbar.classList.remove("sticky");
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="../Images/logo.png" type="image/x-icon">
+    <title>DBMS</title>
+    <style>
+        body {
+            margin: 0;
+            font-size: 26px;
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url("../Images/bg0.jpg");
+            background-repeat: repeat;
+            background-size: 100%;
+            color: white;
+        }
+
+        .header {
+            padding: 0px;
+            text-align: center;
+        }
+
+        #navbar {
+            overflow: hidden;
+            background-image: url("../Images/bg0.jpg");
+            background-size: cover;
+        }
+
+        #navbar a {
+            float: left;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 8px 0px;
+            text-decoration: none;
+            font-size: 30px;
+            width: 33.3%;
+            font-weight: 600;
+        }
+
+        #navbar a:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: black;
+        }
+
+        #navbar a.active {
+            background-color: rgb(255, 102, 0);
+            color: black;
+        }
+
+        .content {
+            padding: 60px;
+            padding-top: 20px;
+        }
+
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        h2 {
+            background-color: rgb(255, 102, 0);
+            text-align: center;
+        }
+
+        .sidenav {
+            height: calc(100vh - 50px);
+            margin-top: 50px;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            background-color: black;
+            overflow-x: hidden;
+            transition: 0.5s;
+            overflow-y: scroll;
+            padding-top: 0px;
+        }
+
+        .sidenav a {
+            padding: 8px 24px;
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            display: block;
+        }
+
+        .sidenav a:hover {
+            color: rgb(255, 102, 0);
+        }
+
+        .sidenav .closebtn {
+            font-size: 36px;
+        }
+
+        .fix {
+            font-size: 28px;
+            cursor: pointer;
+            position: sticky;
+            padding: 0px 7px;
+            top: 52px;
+            border: 2px solid white;
+            margin-right: 20px;
+        }
+
+        #mySidenav::-webkit-scrollbar {
+            display: none;
+        }
+
+        #mySidenav {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        span {
+            color: rgb(255, 102, 0);
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>DATABASE MANAGEMENT SYSTEM</h1>
+        <img src="../Images/icon.png" alt="Logo" style="padding-bottom: 20px;">
+    </div>
+
+    <div id="navbar">
+        <a href="../index.html">HOME</a>
+        <a class="active" href="pl.html">PL/SQL</a>
+        <a href="sql.html">SQL</a>
+    </div><br><br>
+
+    <div style="padding:0px 20px;">
+        <hr>
+        <h2>PL/SQL</h2><a name="1"></a>
+            <hr><br>
+    </div>
+
+    <div class="fix" style="float:right;" onclick="openNav()">&#9776;</div>
+
+    <div class="content">
+        <ol>
+            <li><span> Variables</span> : A variable is a meaningful name which facilitates a programmer to store data
+                temporarily during
+                the execution of code. It helps you to manipulate data in PL/SQL programs. It is nothing except a name
+                given to
+                a storage area. Each variable in the PL/SQL has a specific data type which defines the size and layout
+                of the
+                variable's memory.
+                A variable should not exceed 30 characters. Its letter optionally followed by more letters, dollar
+                signs,
+                numerals, underscore etc.<br><br>
+                Example of initilizing variable------><br>
+                <img src="../Images/p1.png"><br>
+                Output-----><br>
+                <img src="../Images/o1.png"><br><a name="2"></a>
+            </li><br>
+            <br>
+            <hr><br>
+            <li><span>Constants</span> : A constant is a value used in a PL/SQL block that remains unchanged throughout
+                the program. It is a user-defined literal value. It can be declared and used instead of actual values.
+                <br><br>Example of initilizing contants------><br>
+                <img src="../Images/p2.png"><br>
+                Output-----><br>
+                <img src="../Images/o2.png"><br><a name="3"></a>
+            </li><br>
+            <br>
+            <hr><br>
+            <li><span>Scope</span> : PL/SQL allows nesting of blocks. A program block can contain another inner block.
+                If you declare a variable within an inner block, it is not accessible to an outer block. There are two
+                types of variable scope:<br>
+                Local Variable: Local variables are the inner block variables which are not accessible to outer
+                blocks.<br>
+                Global Variable: Global variables are declared in outermost block.<br>
+                <br>Example of initilizing contants------><br>
+                <img src="../Images/p3.png"><br>
+                Output-----><br>
+                <img src="../Images/o3.png"><br><a name="4"></a>
+            </li>
+            <br>
+            <hr><br>
+            <li><span>Control Statements</span> : PL/SQL supports the programming language features like conditional
+                statements and iterative statements. Its programming constructs are similar to how you use in
+                programming languages like Java and C++.<br><br>
+                <ul>
+                    <li>IF-THEN-ELSIF-ELSE Syntax<br>
+                        <img src="../Images/p4.png">
+                    </li><br>
+                    <li>CASE Syntax<br>
+                        <img src="../Images/p5.png">
+                    </li><br>
+                    <li>LOOP Syntax<br>
+                        <img src="../Images/p6.png">
+                    </li><br>
+                    <li>EXIT LOOP Syntax<br>
+                        <img src="../Images/p7.png">
+                    </li><br>
+                    <li>WHILE LOOP Syntax<br>
+                        <img src="../Images/p8.png">
+                    </li><br>
+                    <li>FOR LOOP Syntax<br>
+                        <img src="../Images/p9.png"><a name="5"></a>
+                    </li>
+                </ul>
+            </li>
+            <br>
+            <hr><br>
+            <li><span>Procedure</span> : The PL/SQL stored procedure or simply a procedure is a PL/SQL block which
+                performs one or more specific tasks. It is just like procedures in other programming languages.
+                The procedure contains a header and a body.<br><br>
+                <u>Header</u>: The header contains the name of the procedure and the parameters or variables passed to
+                the
+                procedure.<br>
+                <u>Body</u>: The body contains a declaration section, execution section and exception section similar to
+                a
+                general PL/SQL block.<br><br>
+                <span>Parameters</span> : When you want to create a procedure or function, you have to define parameters
+                .There is three ways to pass parameters in procedure:<br><br>
+                1. <u>IN parameters</u>: The IN parameter can be referenced by the procedure or function. The value of
+                the
+                parameter cannot be overwritten by the procedure or the function.<br>
+                2. <u>OUT parameters</u>: The OUT parameter cannot be referenced by the procedure or function, but the
+                value of
+                the parameter can be overwritten by the procedure or function.<br>
+                3. <u>INOUT parameters</u>: The INOUT parameter can be referenced by the procedure or function and the
+                value of
+                the parameter can be overwritten by the procedure or function.<br><br>
+                Create procedure syntax-----><br>
+                <img src="../Images/p10.png"><br>
+                Example-----><br>
+                <img src="../Images/p11.png"><br>
+                Program to call procedure-----><br>
+                <img src="../Images/p12.png"><br>
+                Output-----><br>
+                <img src="../Images/p13.png"><br><a name="6"></a>
+            </li>
+            <br>
+            <hr><br>
+            <li><span>Cursor</span> : When an SQL statement is processed, Oracle creates a memory area known as context
+                area. A cursor is a pointer to this context area. It contains all information needed for processing the
+                statement. In PL/SQL, the context area is controlled by Cursor. A cursor contains information on a
+                select statement and the rows of data accessed by it.<br><br>
+
+                A cursor is used to referred to a program to fetch and process the rows returned by the SQL statement,
+                one at a time. There are two types of cursors: <br><br>
+
+                <span>1.Implicit Cursors</span> : The implicit cursors are automatically generated by Oracle while
+                an SQL statement is executed, if you don't use an explicit cursor for the statement.
+                These are created by default to process the statements when DML statements like INSERT, UPDATE, DELETE
+                etc. are executed.Orcale provides some attributes known as Implicit cursor's attributes to check the
+                status of DML operations. Some of them are:<br><br>
+                <u>%FOUND</u> - Its return value is TRUE if DML statements like INSERT, DELETE and UPDATE affect at
+                least one
+                row or more rows or a SELECT INTO statement returned one or more rows. Otherwise it returns
+                FALSE.<br><br>
+                <u>%NOTFOUND</u> - Its return value is TRUE if DML statements like INSERT, DELETE and UPDATE affect no
+                row, or
+                a SELECT INTO statement return no rows. Otherwise it returns FALSE. It is a just opposite of
+                %FOUND.<br><br>
+                <u>%ROWCOUNT</u> - It always returns FALSE for implicit cursors, because the SQL cursor is automatically
+                closed
+                after executing its associated SQL statements.<br><br>
+                <u>%ISOPEN</u> - It returns the number of rows affected by DML statements like INSERT, DELETE, and
+                UPDATE or
+                returned by a SELECT INTO statement.<br><br>
+                Example-----><br>
+                <img src="../Images/p14.png"><br>
+                Before-----><br>
+                <img src="../Images/p15.png"><br>
+                Output-----><br>
+                <img src="../Images/p16.png"><br><br>
+
+                <span>2.Explicit Cursors</span> : The Explicit cursors are defined by the programmers to gain more
+                control over the context area. These cursors should be defined in the declaration section of the PL/SQL
+                block. It is created on a SELECT statement which returns more than one row.<br><br>
+                Syntax-----><br>
+                <img src="../Images/p16_1.png"><br><br>
+                You must follow these steps while working with an explicit cursor.<br><br>
+                1. Declare the cursor to initialize in the memory.<br>
+                2. Open the cursor to allocate memory.<br>
+                3. Fetch the cursor to retrieve data.<br>
+                4. Close the cursor to release allocated memory.<br><br>
+                Example-----><br>
+                <img src="../Images/p17.png"><br>
+                Before-----><br>
+                <img src="../Images/p18.png"><br>
+                Output-----><br>
+                <img src="../Images/p19.png"><br><br><a name="7"></a>
+            </li>
+            <br>
+            <hr><br>
+            <li><span>Execption</span> : An error occurs during the program execution is called Exception in PL/SQL.
+                PL/SQL facilitates programmers to catch such conditions using exception block in the program and an
+                appropriate action is taken against the error condition.<br>
+                There are two type of exceptions:<br><br>
+                <span>1. User-defined Exceptions</span> : PL/SQL facilitates their users to define their own exceptions
+                according to the need of the program. A user-defined exception can be raised explicitly, using either a
+                RAISE statement or the procedure DBMS_STANDARD.RAISE_APPLICATION_ERROR.<br>
+                Syntax-----><br>
+                <img src="../Images/p20.png"><br><br>
+                <span>2. Pre-defined Exceptions</span> : There are many pre-defined exception in PL/SQL which are
+                executed when any database rule is violated by the programs.<br>
+                For example: NO_DATA_FOUND is a pre-defined exception which is raised when a SELECT INTO statement
+                returns no rows.<br><br>
+                Table-----><br>
+                <img src="../Images/p21.png"><br>
+                Example-----><br>
+                <img src="../Images/p22.png"><br>
+                Output-----><br>
+                <img src="../Images/p23.png"><br><br><a name="8"></a>
+            </li>
+            <br>
+            <hr><br>
+            <li><span>Trigger</span> : Trigger is invoked by Oracle engine automatically whenever a specified event
+                occurs.Trigger is stored into database and invoked repeatedly, when specific condition match.
+                Triggers are stored programs, which are automatically executed or fired when some event occurs.<br><br>
+                Triggers are written to be executed in response to any of the following events.<br>
+                1. A database manipulation (DML) statement (DELETE, INSERT, or UPDATE).<br>
+                2. A database definition (DDL) statement (CREATE, ALTER, or DROP).<br><br>
+                Syntax for creating trigger-----><br>
+                <img src="../Images/p24.png"><br><br>
+                Information-----><br><br>
+                <ul>
+                    <li><u>CREATE [OR REPLACE] TRIGGER trigger_name</u>: It creates or replaces an existing trigger with the
+                        trigger_name.</li><br>
+                    <li><u>{BEFORE | AFTER | INSTEAD OF} </u>: This specifies when the trigger would be executed. The INSTEAD
+                        OF clause is used for creating trigger on a view.</li><br>
+                    <li><u>{INSERT [OR] | UPDATE [OR] | DELETE}</u>: This specifies the DML operation.</li><br>
+                    <li><u>[OF col_name]</u>: This specifies the column name that would be updated.</li><br>
+                    <li><u>[ON table_name]</u>: This specifies the name of the table associated with the trigger.</li><br>
+                    <li><u>[REFERENCING OLD AS o NEW AS n]</u>: This allows you to refer new and old values for various DML
+                        statements, like INSERT, UPDATE, and DELETE.</li><br>
+                    <li><u>[FOR EACH ROW]</u>: This specifies a row level trigger, i.e., the trigger would be executed for each
+                        row being affected. Otherwise the trigger will execute just once when the SQL statement is
+                        executed, which is called a table level trigger.</li><br>
+                    <li><u>WHEN (condition)</u>: This provides a condition for rows for which the trigger would fire. This
+                        clause is valid only for row level triggers.</li><br>
+                    <li><u>OLD and NEW</u> references are used for record level triggers these are not avialable for table level triggers.</li><br>
+                </ul><br>
+                Creating trigger-----><br>
+                <img src="../Images/m1.png"><br>
+                Executing trigger-----><br>
+                <img src="../Images/m2.png"><br>
+                Table-----><br>
+                <img src="../Images/m3.png"><br>
+                Output-----><br>
+                <img src="../Images/m4.png"><br>
+            </li>
+            <br><hr><br>
+        </ol>
+    </div>
+
+    <div id="mySidenav" class="sidenav">
+        <div style="position:sticky;top:0;float: right;">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#1" class="closebtn">&#8679</a>
+            <a href="#8" class="closebtn">&#8681</a>
+        </div>
+        <a href="#1" style="padding:20px">Variables</a>
+        <a href="#2" style="padding:20px">Constants</a>
+        <a href="#3" style="padding:20px">Scope</a>
+        <a href="#4" style="padding:20px">Control Statements</a>
+        <a href="#5" style="padding:20px">Procedure</a>
+        <a href="#6" style="padding:20px">Cursor</a>
+        <a href="#7" style="padding:20px">Exception</a>
+        <a href="#8" style="padding:20px">Trigger</a>
+    </div>
+</body>
+<script>
+    window.onscroll = function () { myFunction() };
+
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+
+    function myFunction() {
+        if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky")
+        } else {
+            navbar.classList.remove("sticky");
+        }
+    }
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "200px";
+    }
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+</script>
+</html>

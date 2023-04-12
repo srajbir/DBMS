@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="../Images/logo.png" type="image/x-icon">
+    <title>DBMS</title>
+    <style>
+        body {
+            margin: 0;
+            font-size: 24px;
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url("../Images/bg0.jpg");
+            background-repeat: repeat;
+            background-size: 100%;
+            color: white;
+        }
+
+        .header {
+            padding: 0px;
+            text-align: center;
+        }
+
+        #navbar {
+            overflow: hidden;
+            background-image: url("../Images/bg0.jpg");
+            background-size: cover;
+        }
+
+        #navbar a {
+            float: left;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 8px 0px;
+            text-decoration: none;
+            font-size: 30px;
+            width: 33.3%;
+            font-weight: 600;
+        }
+
+        #navbar a:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: black;
+        }
+
+        #navbar a.active {
+            background-color: rgb(255, 102, 0);
+            color: black;
+        }
+
+        .content {
+            padding: 60px;
+            padding-top: 20px;
+        }
+
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        h2 {
+            background-color: rgb(255, 102, 0);
+            text-align: center;
+        }
+
+        .sidenav {
+            height: calc(100vh - 50px);
+            margin-top: 50px;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            background-color: black;
+            overflow-x: hidden;
+            transition: 0.5s;
+            overflow-y: scroll;
+            padding-top: 0px;
+        }
+
+        .sidenav a {
+            padding: 8px 24px;
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            display: block;
+        }
+
+        .sidenav a:hover {
+            color: rgb(255, 102, 0);
+        }
+
+        .sidenav .closebtn {
+            font-size: 36px;
+        }
+
+        .fix {
+            font-size: 28px;
+            cursor: pointer;
+            position: sticky;
+            padding: 0px 7px;
+            top: 52px;
+            border: 2px solid white;
+            margin-right: 20px;
+        }
+
+        #mySidenav::-webkit-scrollbar {
+            display: none;
+        }
+
+        #mySidenav {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        span {
+            color: rgb(255, 102, 0);
+            font-weight: 600;
+        }
+
+        h3 {
+            text-decoration: underline;
+        }
+
+        ul {
+            list-style-type: disc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>DATABASE MANAGEMENT SYSTEM</h1>
+        <img src="../Images/icon.png" alt="Logo" style="padding-bottom: 20px;">
+    </div>
+
+    <div id="navbar">
+        <a href="../index.html">HOME</a>
+        <a href="pl.html">PL/SQL</a>
+        <a class="active" href="sql.html">SQL</a>
+    </div><br><br>
+
+    <div style="padding:0px 20px;">
+        <hr>
+        <h2>Creating a Table</h2><a name="1">
+            <hr><br>
+    </div>
+
+    <div class="fix" style="float:right;" onclick="openNav()">&#9776;</div>
+
+    <div class="content">
+        <h3>Create Table Statement</h3>
+        <ul>
+            <li>In order to store and manage data it is necessary to create tables.</li><br>
+            <li>Tables are created using <span>CREATE TABLE</span> command in sql.</li><br>
+            <li>Syntax is:<br>
+                <span>CREATE TABLE table_name (<br>
+                    &nbsp;column1 datatype,<br>
+                    &nbsp;column2 datatype,<br>
+                    &nbsp;column3 datatype,<br>
+                    );<br></span>
+            </li><br>
+            <li>The variables are defined as:<br>
+                1. <span>table_name :</span> this represents the name of the table.<br>
+                2. <span>column1,2,3 :</span> this represents the name of the column of the table.<br>
+                3. <span>datatype :</span> it represents the data type of each column be it number or string.<br>
+            </li><br>
+            <li>Example:<br>
+                <span>CREATE TABLE Persons (<br>
+                    &nbsp;PersonID int,<br>
+                    &nbsp;LastName varchar(20),<br>
+                    &nbsp;FirstName varchar(20),<br>
+                    &nbsp;Address varchar(20),<br>
+                    &nbsp;City varchar(20)<br>
+                    );<br></span>
+            </li><br>
+            <li>Output:<br><img src="../Images/1.png"></li><br>
+        </ul>
+        <br>
+        <hr><br>
+        <h3>Creating Table From Existing Table</h3>
+        <ul>
+            <li>A copy of an existing table can also be created using <span>CREATE TABLE</span>.
+                The new table gets the same column definitions. All columns or specific columns can be selected.
+                If you create a new table using an existing table, the new table will be filled with the existing values
+                from the old table.</li><br>
+            <li>Syntax:<br><span>
+                    CREATE TABLE new_table_name AS<br>
+                    SELECT column1, column2,...<br>
+                    FROM existing_table_name<br></span>
+            </li><br>
+            <li>Example-----><br><img src="../Images/o4.png"><br>
+            </li><br>
+        </ul>
+    </div>
+
+    <div style="padding:0px 20px;">
+        <hr>
+        <h2>INTEGRITY CONSTRAINTS</h2><a name="2">
+            <hr><br>
+    </div>
+
+    <div class="content">
+        <h3>What are Integrity Constraints?</h3>
+        <ul>
+            <li>Constraints are used to prevent invalid data entry into tables of the database.</li><br>
+            <li>There are two ways to specify constraints:<br><br>
+                1. <span>Column </span>Constraints<br>2. <span>Table</span> Constraints</li><br>
+            <li>The different kinds of constraints are:</li><br>
+            <ol>
+                <li><span>NOT NULL</span> - Ensures that a column cannot have a NULL value</li><br>
+                <li><span>UNIQUE</span> - Ensures that all values in a column are different</li><br>
+                <li><span>PRIMARY KEY</span> - A combination of a NOT NULL and UNIQUE. Uniquely identifies each row in a
+                    table</li><br>
+                <li><span>FOREIGN KEY</span> - Prevents actions that would destroy links between tables</li><br>
+                <li><span>CHECK</span> - Ensures that the values in a column satisfies a specific condition</li><br>
+                <li><span>DEFAULT</span> - Sets a default value for a column if no value is specified</li><br>
+            </ol>
+        </ul>
+
+        <br>
+        <hr><br>
+
+        <h3>Examples:</h3>
+        <ul>
+            <li>NOT NULL ----------></li><br>
+            CREATE TABLE Persons (<br>
+            &nbsp;ID int <span>NOT NULL</span>,<br>
+            &nbsp;LastName varchar(255) <span>NOT NULL</span>,<br>
+            &nbsp;FirstName varchar(255) <span>NOT NULL</span>,<br>
+            &nbsp;Age int<br>
+            );<br><br>
+
+            <br>
+            <li>UNIQUE ----------></li><br>
+            CREATE TABLE Persons (<br>
+            &nbsp;ID int <span>UNIQUE</span>,<br>
+            &nbsp;LastName varchar(255) ,<br>
+            &nbsp;FirstName varchar(255),<br>
+            &nbsp;Age int<br>
+            );<br><br>
+
+            <br>
+            <li>PRIMARY KEY ----------></li><br>
+            CREATE TABLE Persons (<br>
+            &nbsp;ID int <span>PRIMARY KEY</span>,<br>
+            &nbsp;LastName varchar(255) ,<br>
+            &nbsp;FirstName varchar(255),<br>
+            &nbsp;Age int<br>
+            );<br><br>
+
+            <li>FOREIGN KEY ----------></li><br>
+            CREATE TABLE Orders (<br>
+            &nbsp;ID int,<br>
+            &nbsp;PersonID int <Span>FOREIGN KEY REFERENCES Persons_tablename (ID_columnname)</Span><br>
+            );<br><br>
+
+            <br>
+            <li>CHECK ----------></li><br>
+            CREATE TABLE Persons (<br>
+            &nbsp;ID int ,<br>
+            &nbsp;LastName varchar(255) ,<br>
+            &nbsp;FirstName varchar(255),<br>
+            &nbsp;Age int <span>CHECK (Age>18)</span><br>
+            );<br><br>
+
+            <br>
+            <li>DEFAULT ----------></li><br>
+            CREATE TABLE Persons (<br>
+            &nbsp;ID int ,<br>
+            &nbsp;LastName varchar(255) ,<br>
+            &nbsp;FirstName varchar(255),<br>
+            &nbsp;City varchar(255) <span>DEFAULT 'CHANDIGARH'</span>,<br>
+            &nbsp;Age int<br>
+            );<br>
+        </ul>
+    </div>
+
+    <div style="padding:0px 20px;">
+        <hr>
+        <h2>Alter Table</h2><a name="3">
+            <hr><br>
+    </div>
+
+    <div class="content">
+        <h3>ALTER TABLE Command</h3>
+        <p>The ALTER TABLE statement is used to add, delete, or modify columns in an existing table.
+            The ALTER TABLE statement is also used to add and drop various constraints on an existing table.</p>
+
+        <br>
+        <hr><br>
+
+        <h3>ALTER TABLE - ADD Column</h3>
+        <ul>
+            <li>Syntax:<br><span>
+                    ALTER TABLE table_name<br>
+                    ADD column_name datatype;<br></span>
+            </li><br>
+            <li>Example:<br><span>
+                    ALTER TABLE student<br>
+                    ADD fathername varchar(40);<br></span>
+            </li><br>
+        </ul>
+
+        <br>
+        <hr><br>
+
+        <h3>ALTER TABLE - DROP Column</h3>
+        <ul>
+            <li>Syntax:<br><span>
+                    ALTER TABLE table_name<br>
+                    DROP column_name;<br></span>
+            </li><br>
+            <li>Example-----><br><img src="../Images/3.png"><br></li>
+            <br>
+        </ul>
+
+        <br>
+        <hr><br>
+
+        <h3>ALTER TABLE - Rename Column</h3>
+        <ul>
+            <li>Syntax:<br><span>
+                    ALTER TABLE table_name<br>
+                    RENAME COLUMN old_name to new_name;<br></span>
+            </li><br>
+            <li>Example:<br><span>
+                    ALTER TABLE student<br>
+                    RENAME COLUMN rollno to admissionno;<br></span>
+            </li><br>
+        </ul>
+
+        <br>
+        <hr><br>
+
+        <h3>ALTER TABLE - Modify Column</h3>
+        <ul>
+            <li>Syntax:<br><span>
+                    ALTER TABLE table_name<br>
+                    MODIFY COLUMN column_name datatype;<br></span>
+            </li><br>
+            <li>Example-----><br>
+                Alter Table students<br>
+                Modify column rollno bigint;<br>
+            </li><br>
+        </ul>
+
+    </div>
+
+    <div style="padding:0px 20px;">
+        <hr>
+        <h2>DROP, DELETE & TRUNCATE</h2><a name="4">
+            <hr><br>
+    </div>
+
+    <div class="content">
+        <h3>Drop</h3>
+        <li>The DROP TABLE statement is used to drop an existing table in a database.<br><br></li>
+        <li>Syntax:<br>
+            <span>DROP TABLE table_name;</span>
+        </li><br>
+        <br>
+        <hr><br>
+        <h3>Truncate</h3>
+        <li>The TRUNCATE TABLE statement is used to delete the data inside a table, but not the table itself.<br></li>
+        <BR>
+        <li>Syntax:<br>
+            <span>TRUNCATE TABLE table_name;</span>
+        </li><br>
+        <br>
+        <hr><br>
+        <h3>Delete</h3>
+        <li>The DELETE statement is used to delete existing records in a table.</li><br>
+        <li>It is possible to delete all rows in a table without deleting the table. This means that the table
+            structure,
+            attributes, and indexes will be intact.</li><br>
+        <li>Syntax:<br>
+            <span>DELETE FROM table_name WHERE condition;</span>
+        </li><br>
+        <li>Example-----><br><img src="../Images/6.png"><br></li><br>
+        <br>
+    </div>
+
+    <div style="padding:0px 20px;">
+        <hr>
+        <h2>INSERT & UPDATE</h2><a name="5">
+            <hr><br>
+    </div>
+
+    <div class="content">
+        <h3>Insert Statement</h3>
+        <ul>
+            <li>The INSERT INTO statement is used to insert new records in a table.</li><br>
+            <li>It is possible to write the INSERT INTO statement in two ways:</li><br>
+            1. Specify both the column names and the values to be inserted<br><br>
+            Syntax:<br>
+            <span>INSERT INTO table_name (column1, column2, column3, ...)<br>
+                VALUES (value1, value2, value3, ...);</span><br><br>
+            2. If you are adding values for all the columns of the table, you do not need to specify the column names in
+            the SQL query. However, make sure the order of the values is in the same order as the columns in the
+            table.<br>
+            <br>Syntax:<br>
+            <span>INSERT INTO table_name<br>
+                VALUES (value1, value2, value3, ...);</span><br><br>
+                <li>Example-----><br><img src="../Images/7.png"><br></li><br>
+            <li>Insert with SELECT statement (from existing tables)</li><br>
+            Syntax:<br>
+            <span>INSERT INTO table_name<br>
+                SELECT * FROM existing_table_name</span><br>
+        </ul>
+
+        <br>
+        <hr><br>
+        <h3>Update Statement</h3>
+        <ul>
+            <li>The UPDATE statement is used to modify the existing records in a table.</li><br>
+            <li>Syntax:<br>
+                <span>UPDATE table_name<br>
+                    SET column1 = value1, column2 = value2, ...<br>
+                    WHERE condition;</span>
+            </li><br>
+            <li>Example-----><br><img src="../Images/4.png"><br></li><br>
+        </ul>
+        <a name="b5">
+    </div>
+
+    <div style="padding:0px 20px;">
+        <hr>
+        <h2>SELECT STATEMENT & VIEWS</h2><a name="6">
+            <hr><br>
+    </div>
+
+    <div class="content">
+        <h3>Select Statement</h3>
+        <ul>
+            <li>Select is a DML statement used to retrieve rows form the table.</li><br>
+            <li>There are GROUP BY and ORDER BY clause in select statement.</li><br>
+            <li>Syntax:<br>
+                <span>SELECT select_list<br>
+                    FROM table_list<br>
+                    WHERE condition<br>
+                    GROUP BY column1,column2,....<br>
+                    HAVING condition<br>
+                    ORDER BY expression(ascending, desending)<br>
+                </span>
+            </li><br>
+            <li>Example:<br>
+                <span>SELECT ID, name, rollno, marks<br>
+                    FROM student<br>
+                    WHERE marks>150;<br>
+                </span>
+            </li><br><li>Another example-----><br><img src="../Images/8.png"><br></li><br>
+        </ul><br>
+        <br>
+        <hr><br>
+        <h3>Group By Clause</h3>
+        <ul>
+            <li>The GROUP BY statement groups rows that have the same values into summary rows, like "find the number of
+                customers in each country".</li><br>
+            <li>The GROUP BY statement is often used with aggregate functions (COUNT(), MAX(), MIN(), SUM(), AVG()) to
+                group the result-set by one or more columns.</li><br>
+                <li>Example-----><br><img src="../Images/10.png"><br></li><br>
+        </ul>
+        <br>
+        <hr><br>
+        <h3>Order By Clause</h3>
+        <ul>
+            <li>The ORDER BY clause is used to sort the result-set in ascending or descending order.</li><br>
+            <li>The ORDER BY clause sorts the records in ascending order by default. To sort the records in descending
+                order, use the DESC keyword.</li><br>
+        </ul><br>
+        <br>
+        <hr><br>
+        <h3>VIEWS</h3>
+        <ul>
+            <li>In SQL, a view is a virtual table based on the result-set of an SQL statement.</li><br>
+            <li>A view contains rows and columns, just like a real table. The fields in a view are fields from one or
+                more real tables in the database.</li><br>
+            <li>You can add SQL statements and functions to a view and present the data as if the data were coming from
+                one single table.</li><br>
+            <li>A view is created with the CREATE VIEW statement.</li><br>
+            <li>Syntax:<br>
+                <span>
+                    CREATE VIEW view_name AS<br>
+                    SELECT column1, column2, ...<br>
+                    FROM table_name<br>
+                    WHERE condition;<br>
+                </span>
+            </li><br>
+            <li>Creation of Views-----><br><img src="../Images/12.png"><br></li><br>
+            <li>Deletion of Views-----><br><img src="../Images/13.png"><br></li><br>
+        </ul>
+    </div>
+
+    <div style="padding:0px 20px;">
+        <hr>
+        <h2>FUNCTIONS</h2><a name="7">
+            <hr><br>
+    </div>
+
+    <div class="content">
+        <h3>Character Functions</h3>
+        <ul>
+            <li>These functions are used to manipulate strings.</li><br>
+            <li>These functions are:</li><br>
+        </ul>
+        <table align="center" width="90%" border="2px" bordercolor="white" cellpadding="10px" cellspacing="0px">
+            <tr>
+                <th><u>Functin</u></th>
+                <th><u>Purpose</u></th>
+            </tr>
+            <tr>
+                <th><span>concat(m,n)</span></th>
+                <td>join 2 strings</td>
+            </tr>
+            <tr>
+                <th><span>initcap(n)</span></th>
+                <td>changes first letter into capital and rest into lowercase</td>
+            </tr>
+            <tr>
+                <th><span>lenth(column)</span></th>
+                <td>returns the number of characters in string</td>
+            </tr>
+            <tr>
+                <th><span>lower(string)</span></th>
+                <td>converts string into lowercase</td>
+            </tr>
+            <tr>
+                <th><span>upper(string)</span></th>
+                <td>converts string into uppercase</td>
+            </tr>
+            <tr>
+                <th><span>replace(string,m,m)</span></th>
+                <td>replace all 'm' with 'n' in the string</td>
+            </tr>
+        </table><br>
+
+        <br>
+        <hr><br>
+
+        <h3>Date Functions</h3>
+        <ul>
+            <li>These functions are used to manipulate date of the system.</li><br>
+            <li>These functions are:</li><br>
+        </ul>
+        <table align="center" width="90%" border="2px" bordercolor="white" cellpadding="10px" cellspacing="0px">
+            <tr>
+                <th><u>Functin</u></th>
+                <th><u>Purpose</u></th>
+            </tr>
+            <tr>
+                <th><span>sysdate</span></th>
+                <td>shows current time and date of the system</td>
+            </tr>
+            <tr>
+                <th><span>add_months(date,no_of_months)</span></th>
+                <td>adds months to given date</td>
+            </tr>
+            <tr>
+                <th><span>last_date(date)</span></th>
+                <td>returns the last date of the given month</td>
+            </tr>
+            <tr>
+                <th><span>round(date)</span></th>
+                <td>rounds off dates with 15 as median</td>
+            </tr>
+            <tr>
+                <th><span>months_between(date1,date2)</span></th>
+                <td>returns no of months between 2 dates</td>
+            </tr>
+            <tr>
+                <th><span>trunc(date,format)</span></th>
+                <td>truncates the date to specific parameter</td>
+            </tr>
+        </table><br>
+
+        <br>
+        <hr><br>
+
+        <h3>Aggregate/Group Functions</h3>
+        <ul>
+            <li>These functions act on a group of rows to give result rather than single rows.</li><br>
+            <li>These functions are:</li><br>
+        </ul>
+        <table align="center" width="90%" border="2px" bordercolor="white" cellpadding="10px" cellspacing="0px">
+            <tr>
+                <th><u>Functin</u></th>
+                <th><u>Purpose</u></th>
+            </tr>
+            <tr>
+                <th><span>count(column)</span></th>
+                <td>returns total no of NOT NULL values in a record</td>
+            </tr>
+            <tr>
+                <th><span>AVG(column)</span></th>
+                <td>returns average of all Non Null values</td>
+            </tr>
+            <tr>
+                <th><span>Sum(column)</span></th>
+                <td>returns the sum of all the values of a column</td>
+            </tr>
+            <tr>
+                <th><span>MAX / MIN</span></th>
+                <td>returns maximum, minimum values form a column</td>
+            </tr>
+            <tr>
+                <th><span>variance(column)</span></th>
+                <td>gives variance of all the values in column</td>
+            </tr>
+            <tr>
+                <th><span>stddev(column)</span></th>
+                <td>gives standard deviation of all the values in column</td>
+            </tr>
+        </table><br>
+
+
+    </div>
+
+    <div style="padding:0px 20px;">
+        <hr>
+        <h2>DCL & TCL STATEMENTS</h2><a name="8">
+            <hr><br>
+    </div>
+
+    <div class="content">
+        <h3>DCL Statements</h3>
+        <ul>
+            <li>Data Control Language(DCL) deals with the commands used in SQL that permit a user to access, modify or
+                work on the different privileges in order to control the database.</li><br>
+            <li>It allows the database owner to give access, revoke access, and change the given permissions as and when
+                required. DCL is basically used for enforcing data security.</li><br>
+            <li>The DCL commands present in SQL are:</li><br>
+            1. GRANT: GRANT is a DCL command used to grant(give access to) security privileges to specific database
+            users. It is mostly used to restrict user access to INSERT, DELETE, SELECT, UPDATE, EXECUTE, ALTER or to
+            provide privileges to user's data.<br><br>
+            Syntax:<br>
+            <span>GRANT privileges ON object_name
+                TO user</span>
+            <br><br>
+            2. REVOKE: REVOKE is a DCL command that is used to revoke the permissions/access that was granted via the
+            GRANT command. It is mostly used to revert back to the time when no access was specified, i.e., withdrawing
+            the permission that was authorized to carry out specific tasks.<br><br>
+            Syntax:<br>
+            <span>REVOKE privileges ON object_name
+                FROM user</span>
+            <br>
+        </ul><br>
+
+
+        <br>
+        <hr><br>
+
+        <h3>TCL Statements</h3>
+        <ul>
+            <li>In SQL, TCL stands for Transaction control language.</li><br>
+            <li>A single unit of work in a database is formed after the consecutive execution of commands is known as a
+                transaction.</li><br>
+            <li>There are certain commands present in SQL known as TCL commands that help the user manage the
+                transactions that take place in a database.</li><br>
+            <li>COMMIT and ROLLBACK are the most commonly used TCL commands in SQL.</li><br>
+            1. ROLLBACK : While carrying a transaction, we must create savepoints to save different parts of the
+            transaction. According to the user's changing requirements, he/she can roll back the transaction to
+            different savepoints. Consider a scenario: We have initiated a transaction followed by the table creation
+            and record insertion into the table. After inserting records, we have created a savepoint INS. Then we
+            executed a delete query, but later we thought that mistakenly we had removed the useful record. Therefore in
+            such situations, we have an option of rolling back our transaction. In this case, we have to roll back our
+            transaction using the ROLLBACK command to the savepoint INS, which we have created before executing the
+            DELETE query.<br><br>
+            Syntax:<br><span>ROLLBACK;</span>
+            <br><br>
+            2. COMMIT : COMMIT command in SQL is used to save all the transaction-related changes permanently to the
+            disk. Whenever
+            DDL commands such as INSERT, UPDATE and DELETE are used, the changes made by these commands are permanent
+            only after closing the current session. So before closing the session, one can easily roll back the changes
+            made by the DDL commands. Hence, if we want the changes to be saved permanently to the disk without closing
+            the session, we will use the commit command.<br><br>
+            Syntax:<br>
+            <span>COMMIT;</span>
+        </ul>
+    </div>
+
+    <div style="padding:0px 20px;">
+        <hr>
+        <h2>JOINS & SET</h2><a name="9">
+            <hr><br>
+    </div>
+
+    <div class="content">
+        <h3>Joins</h3>
+        <ul>
+            <li>A join is a mechanism that allows tables to be related to one another. The rows retrieved after joining
+                two
+                tables are based on the condition that a column in the first table which is defined as a foreign key
+                must match
+                to the column in second table which is defined as a primary key referenced by the foriegn key.</li><br>
+            <br>
+            <li>Syntax:<br>
+                <span>SELECT table1.column, table2.column, ...<br>
+                    FROM table1, table2, ...<br>
+                    WHERE table1.column1 = table2.column2, ...;</span>
+            </li><br>
+            <li>There are various types of joins:</li><br>
+            <ol>
+                <li>
+                    <span>EQUI JOIN</span>: This is a join in which join condition contains equality operator(=). it
+                    combine tows that have equivalent values for the specified columns.
+                </li>                
+                <br>Example-----><br><img src="../Images/ij.png"><br><br>
+                <br>
+                <li>
+                    <span>CARTESIAN JOIN</span>: If the join condition is omitted from the join query, then the result
+                    is a castesian product. In this join each row of one table is joined to every row of another table.
+                    The result obtained by performing it are rarely useful.<br>
+                </li><br>
+                Syntax:<br><span>
+                    SELECT table1.column1 , table1.column2, table2.column1...<br>
+                    FROM table1<br>
+                    CROSS JOIN table2;</span><br><br>Example-----><br><img src="../Images/cj.png"><br><br>
+                <br>
+                <li>
+                    <span>OUTER JOIN</span>: Using this join, we can select such rows that satisfy the join condition
+                    along with rows form one table that do not have corresponding rows in the other table to satisfy
+                    join condition. This is accomplished with a PLUS (+) operator within parentheses. The operator(+) is
+                    placed on the side of join that is deficient of information.<br>
+                </li><br>
+                Example:<br>
+                <span>SELECT ename, job, deptno, dname FROM EMP, DEPT<br>
+                    WHERE EMP.deptno (+) = DEPT.deptno ;</span><br>
+                <br>
+                <br>
+                <li>
+                    <span>SELF JOIN</span>: Self join is a form of join in which a table join with itself, for this we
+                    need 2 copies of the same table,(we can use aliasing).<br><br>
+                </li>Example:<br><span>
+                    SELECT A.CustomerName AS CustomerName1, B.CustomerName AS CustomerName2, A.City<br>
+                    FROM Customers A, Customers B<br>
+                    WHERE A.CustomerID < B.CustomerID;<br></span>
+            </ol>
+        </ul>
+        <br>
+        <hr><br>
+        <h3>SET Operators</h3><br>
+        <ul>
+            <li>Sometimes its is neccesary to combine query results from two or more SQL queries into a single result,
+                this is done with the help of SET operators.</li><br>
+            <li>Syntax:<br>
+                <span>SELECT statement1 SET_operator SELECT statement 2;</span>
+            </li><br>
+            <li>Types of SET operators are: </li><br>
+            <table align="center" width="90%" border="2px" bordercolor="white" cellpadding="10px" cellspacing="0px">
+                <tr>
+                    <th><u>Operator</u></th>
+                    <th><u>Purpose</u></th>
+                </tr>
+                <tr>
+                    <th><span>UNION</span></th>
+                    <td>returns all rows selected by either query excluding all duplicates</td>
+                </tr>
+                <tr>
+                    <th><span>UNION ALL</span></th>
+                    <td>returns all rows selected by either query including all duplicates</td>
+                </tr>
+                <tr>
+                    <th><span>INTERSECT</span></th>
+                    <td>returns all distinct rows selected by both queries</td>
+                </tr>
+                <tr>
+                    <th><span>MINUS</span></th>
+                    <td>returns all distinct rows selected by first querie but not second</td>
+                </tr>
+            </table><br>
+            <li>Example Union-----><br><img src="../Images/e1.png"><br>
+            Output-----><br><img src="../Images/e2.png"><br></li><br>
+            <li>Example Intersect-----><br><img src="../Images/e3.png"><br></li><br>
+            Output-----><br><img src="../Images/e4.png"><br></li><br>
+        </ul>
+
+    </div>
+
+    <div style="padding:0px 20px;">
+        <br>
+        <hr><br>
+    </div><br>
+
+    <div id="mySidenav" class="sidenav">
+        <div style="position:sticky;top:0;float: right;">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#1" class="closebtn">&#8679</a>
+            <a href="#9" class="closebtn">&#8681</a>
+        </div>
+        <a href="#1" style="padding:20px">1.Create Table</a>
+        <a href="#2" style="padding:20px">2.Constraints</a>
+        <a href="#3" style="padding:20px">3.Alter Table</a>
+        <a href="#4" style="padding:20px">4.Drop, Delete & Truncate</a>
+        <a href="#5" style="padding:20px">5.Insert & Update</a>
+        <a href="#6" style="padding:20px">6.SELECT and Views</a>
+        <a href="#7" style="padding:20px">7.Functions</a>
+        <a href="#8" style="padding:20px">8.DCL & TCL Statements</a>
+        <a href="#9" style="padding:20px">9.Joins & SET</a>
+    </div>
+</body>
+<script>
+    window.onscroll = function () { myFunction() };
+
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+
+    function myFunction() {
+        if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky")
+        } else {
+            navbar.classList.remove("sticky");
+        }
+    }
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+    }
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+</script>
+
+</html>
